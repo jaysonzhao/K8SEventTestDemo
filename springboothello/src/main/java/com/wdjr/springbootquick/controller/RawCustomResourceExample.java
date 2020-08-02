@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class RawCustomResourceExample {
   private static final Logger logger = LoggerFactory.getLogger(RawCustomResourceExample.class);
 
-  public static void CreateCR(String test) throws Exception {
+  public static void CreateCR(String test) {
 
     final CountDownLatch closeLatch = new CountDownLatch(1);
     try (final KubernetesClient client = new DefaultKubernetesClient()) {

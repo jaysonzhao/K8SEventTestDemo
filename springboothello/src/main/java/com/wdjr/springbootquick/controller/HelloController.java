@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @RequestMapping("/hello")
+    @RequestMapping(path="/hello")
     public  String  hello(){
+        RawCustomResourceExample.CreateCR("id"); 
         return "hello ";
     }
     //REST API
