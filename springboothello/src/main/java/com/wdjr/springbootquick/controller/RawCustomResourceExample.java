@@ -63,7 +63,7 @@ public class RawCustomResourceExample {
     } catch (KubernetesClientException e) {
       e.printStackTrace();
       log("Could not create resource", e.getMessage());
-    } catch (IOException e{
+    } catch (IOException e){
       e.printStackTrace();
       log("Could not create resource", e.getMessage());
 
