@@ -46,7 +46,7 @@ public class RawCustomResourceExample {
             cr2Json.getJSONObject("metadata").put("name", "bison");
             cr2Json.getJSONObject("spec").put("html", "hello from springboot app");
 
-            client.customResource(animalCrdContext).create(namespace, cr2Json.toString());
+            client.customResource(crdContext).create(namespace, cr2Json.toString());
       log("Resource created");
       // Listing all custom resources in given namespace:
       Map<String, Object> list = client.customResource(crdContext).list(namespace);
