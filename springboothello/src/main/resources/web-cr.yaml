@@ -1,0 +1,7 @@
+apiVersion: "sample.javaoperatorsdk/v1"
+kind: WebServer
+metadata:
+  name: test
+spec:
+  html: |
+        Hellooooo!! Operators!! version 2
