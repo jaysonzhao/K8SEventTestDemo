@@ -23,14 +23,6 @@ public class RawCustomResourceExample {
 
       String namespace = "webserver-operator";
       
-      // Listing all custom resources in given namespace:
-      Map<String, Object> list = client.customResource(crdContext).list(namespace);
-      List<Map<String, Object>> items = (List<Map<String, Object>>) list.get("items");
-      log("Custom Resources :- ");
-      for(Map<String, Object> customResource : items) {
-        Map<String, Object> metadata = (Map<String, Object>) customResource.get("metadata");
-        log(metadata.get("name").toString());
-      }
 
       // Creating Custom Resources Now:
       CustomResourceDefinitionContext crdContext = new CustomResourceDefinitionContext.Builder()
@@ -41,7 +33,15 @@ public class RawCustomResourceExample {
 		.withName(test)
         .build();
       log("Resource created");
-      
+      // Listing all custom resources in given namespace:
+      Map<String, Object> list = client.customResource(crdContext).list(namespace);
+      List<Map<String, Object>> items = (List<Map<String, Object>>) list.get("items");
+      log("Custom Resources :- ");
+      for(Map<String, Object> customResource : items) {
+        Map<String, Object> metadata = (Map<String, Object>) customResource.get("metadata");
+        log(metadata.get("name").toString());
+      }
+
 
       
     } catch (KubernetesClientException e) {
