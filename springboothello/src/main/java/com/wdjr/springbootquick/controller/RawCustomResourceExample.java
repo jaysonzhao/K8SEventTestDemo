@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -62,7 +63,12 @@ public class RawCustomResourceExample {
     } catch (KubernetesClientException e) {
       e.printStackTrace();
       log("Could not create resource", e.getMessage());
-    }
+    } catch (IOException e{
+      e.printStackTrace();
+      log("Could not create resource", e.getMessage());
+
+
+   }
   }
 
   private static void log(String action, Object obj) {
