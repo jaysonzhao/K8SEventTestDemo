@@ -7,6 +7,9 @@ import io.fabric8.kubernetes.client.Watcher;
 import io.fabric8.kubernetes.client.dsl.base.CustomResourceDefinitionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Map;
@@ -30,8 +33,20 @@ public class RawCustomResourceExample {
         .withPlural("webservers")
         .withScope("Namespaced")
         .withVersion("v1")
-		.withName(test)
         .build();
+
+      // Creating from HashMap
+            Map<String, Object> cr1 = client
+                    .customResource(crdContext)
+                    .load(RawCustomResourceExample.class.getResourceAsStream("/web-cr.yaml"));
+            //client.customResource(animalCrdContext).create(namespace, cr1);
+
+            // Creating from JSON String
+            JSONObject cr2Json = new JSONObject(cr1);
+            cr2Json.getJSONObject("metadata").put("name", "bison");
+            cr2Json.getJSONObject("spec").put("html", "hello from springboot app");
+
+            client.customResource(animalCrdContext).create(namespace, cr2Json.toString());
       log("Resource created");
       // Listing all custom resources in given namespace:
       Map<String, Object> list = client.customResource(crdContext).list(namespace);
