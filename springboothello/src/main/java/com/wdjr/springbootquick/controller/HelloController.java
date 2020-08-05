@@ -22,4 +22,9 @@ public class HelloController {
         return "hello ";
     }
     //REST API
+     @GetMapping
+    public  String  testuri(){
+        return "test";
+    }
+
 }
