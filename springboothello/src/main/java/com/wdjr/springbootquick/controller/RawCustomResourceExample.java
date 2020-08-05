@@ -44,7 +44,7 @@ public class RawCustomResourceExample {
 
             // Creating from JSON String
             JSONObject cr2Json = new JSONObject(cr1);
-            cr2Json.getJSONObject("metadata").put("name", "bison");
+            cr2Json.getJSONObject("metadata").put("name", test);
             cr2Json.getJSONObject("spec").put("html", "hello from springboot app");
 
             client.customResource(crdContext).create(namespace, cr2Json.toString());
