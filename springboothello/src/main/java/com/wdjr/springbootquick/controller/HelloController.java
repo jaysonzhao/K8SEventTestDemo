@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /*@ResponseBody
 @Controller*/
 @RestController
-@RequestMapping(path="/hello")
+@RequestMapping("/hello")
 public class HelloController {
 
     //@RequestMapping(path="/hello")
