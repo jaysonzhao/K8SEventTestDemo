@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 /*@ResponseBody
 @Controller*/
 @RestController
-@RequestMapping("/hello")
+//@RequestMapping("/hello")
 public class HelloController {
 
-    //@RequestMapping(path="/hello")
-    @RequestMapping(value = "/crId")
-    public  String  hello(@RequestParam String crId){
+    @RequestMapping(path="/hello")
+    //@RequestMapping(value = "/crId")
+    public  String  hello(@PathVariable("crId") String crId){
         RawCustomResourceExample.CreateCR(crId); 
         return "hello ";
     }
